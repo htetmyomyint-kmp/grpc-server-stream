@@ -1,0 +1,16 @@
+syntax="proto3";
+
+option go_package="proto/checker";
+
+service PriceChecker {
+    rpc CheckPrice(PCRequest) returns (stream PCResponse);
+}
+
+message PCRequest {
+    string product_id = 1;
+}
+
+message PCResponse {
+    string product_id = 1;
+    double price = 2;
+}
